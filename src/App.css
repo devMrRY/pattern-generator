@@ -1,0 +1,39 @@
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0.1px solid lightgray;
+  padding: 25px;
+  box-shadow: 1px 1px 5px gray;
+}
+
+.app input{
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0.1px solid gray;
+}
+
+.app button[type="submit"]{
+  background-color: green;
+  padding: 10px;
+  color: white;
+  border: none;
+}
+
+.app .pattern-container{
+  margin-top: 20px;
+  width: 300px;
+  height: 300px;
+  border: 0.1px solid lightgray;
+  padding: 25px;
+  box-shadow: 1px 1px 5px gray;
+}
