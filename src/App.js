@@ -43,14 +43,14 @@ function App() {
     element.download = "myFile.svg";
     document.body.appendChild(element);
     element.click();
-
+    document.body.removeChild(element);
   }
 
   return (
     <div className="app">
       <h2>TECH SUPERIOR PATTERN GENERATOR</h2>
       <form onSubmit={handleSubmit}>
-        <input placeholder="Enter a number" onChange={handleChange} />
+        <input placeholder="Enter a number" maxLength="4" onChange={handleChange} />
         <br />
         <button type="submit">Submit</button>
       </form>
