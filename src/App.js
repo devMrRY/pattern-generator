@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { imgs } from './utils/common';
-
 import './App.css';
 
 function App() {
   const [value, setValue] = useState('');
   const [pattern, setPattern] = useState('');
-
+  const imgRef = useRef(null);
+  
   const handleChange = (e) => {
     setValue(e.target.value);
   }
@@ -18,7 +18,6 @@ function App() {
   }
 
   const patternGenerator = (nums) => {
-    debugger
     let arr = nums.map(item=>imgs[item]);
     setPattern(arr);
   }
@@ -35,19 +34,32 @@ function App() {
     arr.push(num);
     return arr.map((item, i)=>item*Math.pow(10, i))
   }
+
+  const download = () => {
+    const content = imgRef.current.outerHTML
+    const element = document.createElement("a");
+    const file = new Blob([content], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = "myFile.svg";
+    document.body.appendChild(element);
+    element.click();
+
+  }
+
   return (
     <div className="app">
-      <h2>PATTERN GENERATOR</h2>
+      <h2>TECH SUPERIOR PATTERN GENERATOR</h2>
       <form onSubmit={handleSubmit}>
         <input placeholder="Enter a number" onChange={handleChange} />
         <br />
         <button type="submit">Submit</button>
       </form>
-      <div className="pattern-container">
-        <svg height="250" width="250">
+      {pattern && <div className="pattern-container">
+        <button onClick={download}>download</button>
+        <svg height="250" width="250" ref={imgRef} xmlns="http://www.w3.org/2000/svg" version="1.1">
           {pattern}
         </svg>
-      </div>
+      </div>}
     </div>
   );
 }

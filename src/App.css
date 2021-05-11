@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .app form{
@@ -36,4 +37,29 @@
   border: 0.1px solid lightgray;
   padding: 25px;
   box-shadow: 1px 1px 5px gray;
+  position: relative;
+}
+
+.app .pattern-container button{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: lightskyblue;
+  border: none;
+  padding: 5px;
+  color: white;
+}
+
+.app .pattern-container button:hover{
+  cursor: pointer;
+}
+#ten{
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(180deg);
+}
+line, rect{
+  stroke: rgb(0, 0, 0);
+  stroke-width: 5;
+  stroke-linecap: square;
 }
